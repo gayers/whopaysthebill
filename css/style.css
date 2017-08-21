@@ -83,3 +83,25 @@ input:focus{
 	text-align: center;
 	padding: 10px 0px;
 }
+
+
+/*=================================
+	Results Container
+===================================*/
+
+.results_container{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.results_container h3{
+	color: darkred;
+}
+
+.results_container div{
+	cursor: pointer;
+}
+
