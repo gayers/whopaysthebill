@@ -4,6 +4,7 @@
 
 	this.init = function(){
 		this.addApplicant();
+		this.getRandomUser();
 	};
 
 	this.showList = function(){
@@ -67,6 +68,34 @@
 			})
 		}
 	};
+
+	this.getRandomUser = function(){
+		var resultsButton = document.querySelector('#show_result');
+
+		function showLooser(){
+			var resultsContainer = document.querySelector('.results_container');
+			var applicantsContainer = document.querySelector('.applicant_container');
+
+			applicantsContainer.className += ' hidden';
+			resultsContainer.className = 'results_container';
+
+			showRandomUser();
+		}
+
+		resultsButton.addEventListener('click', function(e){
+			if(applicants.length > 1){
+				showLooser();
+			}
+		})
+	};
+
+	this.showRandomUser = function(argument) {
+		var resultContainer = document.querySelector('.result');
+		var rand = applicants[Math.floor(Math.random() * applicants.length)];
+
+		resultContainer.innerHTML = '';
+		resultContainer.insertAdjacentHTML('afterbegin', '<h3>'+ rand +'</h3>');
+	}
 
 	this.init();
 })();
