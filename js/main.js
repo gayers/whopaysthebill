@@ -5,6 +5,8 @@
 	this.init = function(){
 		this.addApplicant();
 		this.getRandomUser();
+		this.runAgain();
+		this.startOver();
 	};
 
 	this.showList = function(){
@@ -95,7 +97,33 @@
 
 		resultContainer.innerHTML = '';
 		resultContainer.insertAdjacentHTML('afterbegin', '<h3>'+ rand +'</h3>');
-	}
+	};
+
+	this.runAgain = function(){
+		var runAgainBtn = document.querySelector('.run_again');
+
+		runAgainBtn.addEventListener("click", function(e){
+			showRandomUser();
+		})
+	};
+
+	this.startOver = function(){
+		var startAgainBtn = document.querySelector('.start_again');
+
+		startAgainBtn.addEventListener('click', function(){
+			var resultsContainer = document.querySelector('.results_container');
+			var applicantsContainer = document.querySelector('.applicant_container');
+			var applicantsWrapper = document.querySelector('.applicant_list_wrapper');
+
+
+			applicantsContainer.className = 'applicant_container';
+			resultsContainer.className = 'results_container hidden';
+			applicantsWrapper.innerHTML = '';
+
+			applicants = [];
+
+		})
+	};
 
 	this.init();
 })();
